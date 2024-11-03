@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
 
-# Stop the running container (if any)
-echo "Hi"
+# Get the container ID of the running container
+containerID=$(docker ps | awk '{print $1}' | head -n 1)
+
+# Remove the container forcefully
+docker rm -f "$containerID"
